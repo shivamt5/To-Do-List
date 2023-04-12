@@ -1,0 +1,72 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+
+@if (SignInManager.IsSignedIn(User))
+{
+@*    <div class="container-fluid bg-pribtn btn-lg btn-light mx-2mary text-light py-5">
+*@    <div class="container-fluid bg-primary text-light py-5">
+    <div class="container">
+            <h1 class="text-center mb-4">Hello @UserManager.GetUserName(User)</h1>
+        <p class="text-center">What are you up to today?!</p>
+        <div class="text-center mt-4">
+                <a asp-controller="Tasks" asp-action="Create" class="btn btn-lg btn-light mx-2">Add a New Task</a>
+                <a asp-controller="Tasks" asp-action="Index" class="btn btn-lg btn-secondary mx-2">View your Tasks</a>
+        </div>
+    </div>
+    </div>
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h3 class="text-center mb-4">How It Works</h3>
+                <p class="text-center">Manage your tasks in a simple and intuitive way:</p>
+                <ul class="list-group mt-4">
+                    <li class="list-group-item">
+                        <span class="font-weight-bold">Create Tasks:</span> Add new tasks with titles and descriptions.
+                    </li>
+                    <li class="list-group-item">
+                        <span class="font-weight-bold">Track Progress:</span> Mark tasks as completed or pending.
+                    </li>
+                    <li class="list-group-item">
+                        <span class="font-weight-bold">Stay Organized:</span> View and manage all your tasks in one place.
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+ }
+else
+{
+    <div class="container-fluid bg-primary text-light py-5">
+        <div class="container">
+            <h1 class="text-center mb-4">Welcome to the To-Do List Application</h1>
+            <p class="text-center">Stay organized and keep track of your tasks with ease!</p>
+            <div class="text-center mt-4">
+                <a asp-controller="Account" asp-action="Login" class="btn btn-lg btn-light mx-2">Sign In</a>
+                <a asp-controller="Account" asp-action="Register" class="btn btn-lg btn-secondary mx-2">Register</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h3 class="text-center mb-4">How It Works</h3>
+                <p class="text-center">Manage your tasks in a simple and intuitive way:</p>
+                <ul class="list-group mt-4">
+                    <li class="list-group-item">
+                        <span class="font-weight-bold">Create Tasks:</span> Add new tasks with titles and descriptions.
+                    </li>
+                    <li class="list-group-item">
+                        <span class="font-weight-bold">Track Progress:</span> Mark tasks as completed or pending.
+                    </li>
+                    <li class="list-group-item">
+                        <span class="font-weight-bold">Stay Organized:</span> View and manage all your tasks in one place.
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+}

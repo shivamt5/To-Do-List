@@ -1,0 +1,109 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = ToDoList
+build_property.RootNamespace = ToDoList
+build_property.ProjectDir = C:\Users\ShivamArvindTivrekar\source\repos\ToDoList\ToDoList\
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\ShivamArvindTivrekar\source\repos\ToDoList\ToDoList
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/ShivamArvindTivrekar/source/repos/ToDoList/ToDoList/Views/Account/ExternalLoginConfirmation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxFeHRlcm5hbExvZ2luQ29uZmlybWF0aW9uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ShivamArvindTivrekar/source/repos/ToDoList/ToDoList/Views/Account/ForgotPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxGb3Jnb3RQYXNzd29yZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ShivamArvindTivrekar/source/repos/ToDoList/ToDoList/Views/Account/ForgotPasswordConfirmation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxGb3Jnb3RQYXNzd29yZENvbmZpcm1hdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ShivamArvindTivrekar/source/repos/ToDoList/ToDoList/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ShivamArvindTivrekar/source/repos/ToDoList/ToDoList/Views/Account/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ShivamArvindTivrekar/source/repos/ToDoList/ToDoList/Views/Home/ContactUs.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb250YWN0VXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ShivamArvindTivrekar/source/repos/ToDoList/ToDoList/Views/Home/Help.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxIZWxwLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ShivamArvindTivrekar/source/repos/ToDoList/ToDoList/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ShivamArvindTivrekar/source/repos/ToDoList/ToDoList/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ShivamArvindTivrekar/source/repos/ToDoList/ToDoList/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ShivamArvindTivrekar/source/repos/ToDoList/ToDoList/Views/Shared/_LoginHomePage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpbkhvbWVQYWdlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ShivamArvindTivrekar/source/repos/ToDoList/ToDoList/Views/Shared/_LoginPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ShivamArvindTivrekar/source/repos/ToDoList/ToDoList/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ShivamArvindTivrekar/source/repos/ToDoList/ToDoList/Views/Tasks/completedTasks.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFza3NcY29tcGxldGVkVGFza3MuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ShivamArvindTivrekar/source/repos/ToDoList/ToDoList/Views/Tasks/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFza3NcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ShivamArvindTivrekar/source/repos/ToDoList/ToDoList/Views/Tasks/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFza3NcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ShivamArvindTivrekar/source/repos/ToDoList/ToDoList/Views/Tasks/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFza3NcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ShivamArvindTivrekar/source/repos/ToDoList/ToDoList/Views/Tasks/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFza3NcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ShivamArvindTivrekar/source/repos/ToDoList/ToDoList/Views/Tasks/PendingTasks.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFza3NcUGVuZGluZ1Rhc2tzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ShivamArvindTivrekar/source/repos/ToDoList/ToDoList/Views/Tasks/SearchTask.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFza3NcU2VhcmNoVGFzay5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ShivamArvindTivrekar/source/repos/ToDoList/ToDoList/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ShivamArvindTivrekar/source/repos/ToDoList/ToDoList/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ShivamArvindTivrekar/source/repos/ToDoList/ToDoList/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-dt7ithozdg

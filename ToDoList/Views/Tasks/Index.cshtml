@@ -1,0 +1,53 @@
+﻿@model List<Tasks>
+
+<p><a asp-controller="Tasks" asp-action="Create" class="btn btn-primary">Add new item</a></p>
+
+<a asp-action="Index" asp-route-sortOrder="Title" class="btn btn-primary">Sort by Title</a>
+<a asp-action="Index" asp-route-sortOrder="Priority" class="btn btn-primary">Sort by Priority</a>
+<a asp-action="Index" asp-route-sortOrder="DueDate" class="btn btn-primary">Sort by Due Date</a>
+<a asp-controller="Tasks" asp-action="CompletedTasks" class="btn btn-primary">View Completed Tasks</a>
+<a asp-controller="Tasks" asp-action="PendingTasks" class="btn btn-primary">View Pending Tasks</a>
+
+<form asp-controller="Tasks" asp-action="SearchTask" method="post">
+    <label for="searchTerm">Search:</label>
+    <input type="text" class="form-control" id="searchTerm" name="searchTerm" />
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+
+<!-- Task List -->
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            @*<a asp-action="Index" asp-route-sortOrder="title_desc">Title</a>*@
+            <th>Description</th>
+            <th>Date Created</th>
+            <th>Due Date</th>
+            <th>Category</th>
+            <th>Priority</th>
+            <th>Is Done?</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            //if (!item.IsCompleted)
+            //{
+                <tr>
+                    <td>@item.Title</td>
+                    <td>@item.Description</td>
+                    <td>@item.DateCreated</td>
+                    <td>@item.DueDate</td>
+                    <td>@item.Category</td>
+                    <td>@item.Priority</td>
+                    <td>@(item.IsCompleted ? "Yes" : "No")</td>
+                    <td>
+                    <a asp-controller="Tasks" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">Edit</a>
+                    <a asp-controller="Tasks" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-primary">Delete</a>
+                    </td>
+                </tr>
+            //}
+        }
+    </tbody>
+</table>

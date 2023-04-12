@@ -1,0 +1,54 @@
+﻿@model List<Tasks>
+
+
+<a asp-action="PendingTasks" asp-route-sortOrder="Title" class="btn btn-primary">Sort by Title</a>
+<a asp-action="pendingTasks" asp-route-sortOrder="Priority" class="btn btn-primary">Sort by Priority</a>
+<a asp-action="PendingTasks" asp-route-sortOrder="DueDate" class="btn btn-primary">Sort by Due Date</a>
+<a asp-controller="Tasks" asp-action="CompletedTasks" class="btn btn-primary">View Completed Tasks</a>
+<a asp-controller="Tasks" asp-action="Index" class="btn btn-primary">View All Tasks</a>
+
+<h1>Incomplete Tasks</h1>
+
+<!-- Pending Task List -->
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            @*<a asp-action="Index" asp-route-sortOrder="title_desc">Title</a>*@
+            <th>Description</th>
+            <th>Date Created</th>
+            <th>Due Date</th>
+            <th>Category</th>
+            <th>Priority</th>
+            <th>Is Done?</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @if (Model != null && Model.Count > 0)
+        {
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Title</td>
+                    <td>@item.Description</td>
+                    <td>@item.DateCreated</td>
+                    <td>@item.DueDate</td>
+                    <td>@item.Category</td>
+                    <td>@item.Priority</td>
+                    <td>@(item.IsCompleted ? "Yes" : "No")</td>
+                    <td>
+                        <a asp-controller="Tasks" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">Edit</a>
+                        <a asp-controller="Tasks" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-primary">Delete</a>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <p>No Incomplete tasks.</p>
+        }
+    </tbody>
+</table>
+
+
