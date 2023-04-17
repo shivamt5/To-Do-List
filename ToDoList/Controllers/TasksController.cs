@@ -49,9 +49,7 @@ namespace ToDoList.Controllers
                     tasks = tasks.OrderBy(t => t.Title);
                     break;
             }
-
             var sortedTasks = await tasks.ToListAsync();
-
             return View(sortedTasks);
         }
 
@@ -79,9 +77,7 @@ namespace ToDoList.Controllers
                     completedTasks = completedTasks.OrderBy(t => t.Title);
                     break;
             }
-
             var sortedCompletedTasks = await completedTasks.ToListAsync();
-
             return View(sortedCompletedTasks);
         }
 
@@ -109,7 +105,6 @@ namespace ToDoList.Controllers
                     pendingTasks = pendingTasks.OrderBy(t => t.Title);
                     break;
             }
-
             var sortedPendingTasks = await pendingTasks.ToListAsync();
 
             return View(sortedPendingTasks);
@@ -198,7 +193,6 @@ namespace ToDoList.Controllers
             _context.tasks.Update(task);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
-            //return View(task);
         }
 
         [Authorize]

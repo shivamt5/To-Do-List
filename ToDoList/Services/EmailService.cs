@@ -1,51 +1,71 @@
-﻿//using System.Net;
-//using System.Net.Mail;
-//using Microsoft.Extensions.Configuration;
+﻿using Humanizer;
+using Mailjet.Client.Resources;
+using MailKit.Security;
+using MimeKit;
+using ToDoList.Models;
 
-//// Inject IConfiguration in your service or controller
-//public class EmailService
-//{
-//    private readonly IConfiguration _configuration;
+namespace ToDoList.Services
+{
+    public class EmailService : IEmailService
+    {
+        public async Task<bool> SendForgotPasswordEmail(string name, string to, string subject, string body)
+        {
+            try
+            {
+                MimeMessage emailMessage = new MimeMessage();
+                MailboxAddress emailFrom = new MailboxAddress("Support@To-Do-List", "shivamtivrekar@outlook.com");
+                emailMessage.From.Add(emailFrom);
 
-//    public EmailService(IConfiguration configuration)
-//    {
-//        _configuration = configuration;
-//    }
+                MailboxAddress emailTo = new MailboxAddress(name, to);
+                emailMessage.To.Add(emailTo);
 
-//    public void SendEmail(string to, string subject, string body)
-//    {
-//        // Get SMTP settings from appsettings.json
-//        var smtpSettings = _configuration.GetSection("SmtpSettings")
-//            .Get<SmtpSettings>();
+                emailMessage.Subject = subject;
+                BodyBuilder emailBodyBuilder = new BodyBuilder();
+                emailBodyBuilder.TextBody = body;
+                emailMessage.Body = emailBodyBuilder.ToMessageBody();
 
-//        // Create SmtpClient
-//        using (var client = new SmtpClient(smtpSettings.Server, smtpSettings.Port))
-//        {
-//            client.EnableSsl = smtpSettings.UseSsl;
-//            client.Credentials = new NetworkCredential(smtpSettings.Username, smtpSettings.Password);
+                MailKit.Net.Smtp.SmtpClient emailClient = new MailKit.Net.Smtp.SmtpClient();
+                emailClient.Connect("smtp.office365.com", 587, SecureSocketOptions.StartTls);
+                emailClient.Authenticate("shivamtivrekar@outlook.com", "shivam@005");
+                emailClient.Send(emailMessage);
+                emailClient.Disconnect(true);
+                emailClient.Dispose();
 
-//            // Create MailMessage
-//            using (var message = new MailMessage())
-//            {
-//                message.From = new MailAddress(smtpSettings.Username);
-//                message.To.Add(to);
-//                message.Subject = subject;
-//                message.Body = body;
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+                throw new Exception("Failed to send email", ex);
+            }
 
-//                // Send email
-//                client.Send(message);
-//            }
-//        }
-//    }
-//}
+        }
 
-//// SmtpSettings model to hold SMTP settings
-//public class SmtpSettings
-//{
-//    public string Server { get; set; }
-//    public int Port { get; set; }
-//    public string Username { get; set; }
-//    public string Password { get; set; }
-//    public bool UseSsl { get; set; }
-//}
+        public async Task<bool> SendReminderEmail(string taskName, ApplicationUser user, int daysRemaining, MimeMessage emailMessage, MailKit.Net.Smtp.SmtpClient emailClient)
+        {
+            try
+            {
+                string to = user.Email;
+                string name = user.UserName;
 
+                MailboxAddress emailTo = new MailboxAddress(name, to);
+                emailMessage.To.Add(emailTo);
+
+                emailMessage.Subject = $"Approaching Task Deadline: {taskName}";
+
+                BodyBuilder emailBodyBuilder = new BodyBuilder();
+                emailBodyBuilder.TextBody = $"This is a reminder that the task '{taskName}' is due in {daysRemaining} days.";
+                emailMessage.Body = emailBodyBuilder.ToMessageBody();
+
+                emailClient.Send(emailMessage);
+
+                return true;
+            }
+            catch (Exception ex) 
+            {
+                return false;
+                throw new Exception("Failed to send email", ex);
+            }
+        }
+    }
+}

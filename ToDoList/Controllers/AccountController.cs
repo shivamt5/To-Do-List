@@ -1,21 +1,28 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Humanizer;
+using MailKit.Security;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using MimeKit;
+using System.Net.Mail;
 using System.Security.Claims;
+using MailKit.Net.Smtp;
 using ToDoList.Models;
 using ToDoList.ViewModels;
+using ToDoList.Services;
 
 namespace ToDoList.Controllers
 {
     public class AccountController : Controller
     {
-
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly IEmailService _emailService;
 
-        public AccountController( UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
+        public AccountController( UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager, IEmailService emailService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _emailService = emailService;
         }
 
         public IActionResult Index()
@@ -44,6 +51,9 @@ namespace ToDoList.Controllers
                 if (result.Succeeded)
                 {
                     await _signInManager.SignInAsync(user, isPersistent: false);
+                    string subject = "To-Do-List: Account Registration Successfull";
+                    string body = $"Hello {user.UserName}, your Registration for To-Do-List Application was successful. Start adding tasks and keep a track on them now.";
+                    var EmailSentSuccessfully = await _emailService.SendForgotPasswordEmail(user.Email, user.Email, subject, body);
                     return LocalRedirect(returnurl);
                 }
             }
@@ -110,6 +120,26 @@ namespace ToDoList.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ForgotPassword(ForgotPasswordViewModel model)
         {
+            if (ModelState.IsValid)
+            {
+                var user = await _userManager.FindByEmailAsync(model.Email);
+                
+                if (user == null)
+                {
+                    return RedirectToAction("ForgotPasswordConfirmation");
+                }
+
+                string name = model.Email;
+                string to = model.Email;
+                string subject = "Reset Password - Identity Manager";
+                var code = await _userManager.GeneratePasswordResetTokenAsync(user);
+                var callbackurl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: HttpContext.Request.Scheme);
+                string body = "Please reset your password by clicking here: <a href=\"" + callbackurl + "\">link</a>";
+                
+                var EmailSentSuccessfully = await _emailService.SendForgotPasswordEmail(name, to, subject, body);
+                return RedirectToAction("ForgotPasswordConfirmation");
+            }
+
             return View(model);
         }
 
@@ -158,6 +188,7 @@ namespace ToDoList.Controllers
 
             }
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ExternalLoginConfirmation(ExternalLoginConfirmationViewModel model, string returnurl = null)

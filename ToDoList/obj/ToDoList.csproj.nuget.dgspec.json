@@ -44,29 +44,13 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
-            "Hangfire.AspNetCore": {
-              "target": "Package",
-              "version": "[1.7.34, )"
-            },
-            "Hangfire.Core": {
-              "target": "Package",
-              "version": "[1.7.34, )"
-            },
-            "Hangfire.InMemory": {
-              "target": "Package",
-              "version": "[0.3.7, )"
-            },
-            "Hangfire.SQLite": {
-              "target": "Package",
-              "version": "[1.4.2, )"
-            },
-            "Hangfire.Storage.SQLite": {
-              "target": "Package",
-              "version": "[0.3.3, )"
-            },
             "MailKit": {
               "target": "Package",
               "version": "[3.6.0, )"
+            },
+            "Mailjet.Api": {
+              "target": "Package",
+              "version": "[3.0.0, )"
             },
             "Microsoft.AspNetCore.Authentication.Facebook": {
               "target": "Package",
@@ -96,6 +80,10 @@
               "target": "Package",
               "version": "[7.0.4, )"
             },
+            "NETCore.MailKit": {
+              "target": "Package",
+              "version": "[2.1.0, )"
+            },
             "Quartz": {
               "target": "Package",
               "version": "[3.6.2, )"
@@ -103,14 +91,6 @@
             "Quartz.Extensions.Hosting": {
               "target": "Package",
               "version": "[3.6.2, )"
-            },
-            "SendGrid": {
-              "target": "Package",
-              "version": "[9.28.1, )"
-            },
-            "SendGrid.Extensions.DependencyInjection": {
-              "target": "Package",
-              "version": "[1.0.1, )"
             }
           },
           "imports": [
